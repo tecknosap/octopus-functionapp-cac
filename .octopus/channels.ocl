@@ -1,9 +1,3 @@
-channel "Default" {
-  name = "Review,Release"
-  #is_default = true
-
-  lifecycle_id = "Standard Promotion"
-}
 
 channel "Release" {
   name = "Release"
