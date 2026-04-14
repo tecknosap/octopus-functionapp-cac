@@ -1,8 +1,5 @@
-channels {
-
-  channel "Default" {
-    is_default = true
-  }
-
-  channel "Hotfix" {}
+channel "Default" {
+  is_default = true
 }
+
+channel "Hotfix" {}

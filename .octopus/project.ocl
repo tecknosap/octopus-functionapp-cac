@@ -1,6 +1,6 @@
 project {
   name        = "FunctionApp.Template"
-  description = "Octopus CaC template for Azure Function App deployments"
+  description = "Azure Function App deployment template"
 
   project_group = "Function Apps"
   lifecycle     = "Default Lifecycle"

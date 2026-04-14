@@ -1,82 +1,79 @@
-deploymentProcess {
+step "Add subscriptions to service bus topics" {
+  type = "Script"
+}
 
-  step "Add subscriptions to service bus topics" {
-    type = "Script"
-  }
+step "Create function app" {
+  type = "Script"
+}
 
-  step "Create function app" {
-    type = "Script"
-  }
+step "Get Principal Id" {
+  type = "Script"
+}
 
-  step "Get Principal Id" {
-    type = "Script"
-  }
+step "Grant KeyVault access to function app" {
+  type = "Script"
+}
 
-  step "Grant KeyVault access to function app" {
-    type = "Script"
-  }
+step "Grant Shared KeyVault access to function app" {
+  type = "Script"
+}
 
-  step "Grant Shared KeyVault access to function app" {
-    type = "Script"
-  }
+step "Restrict App Insights Access to Function App" {
+  type = "Script"
+}
 
-  step "Restrict App Insights Access to Function App" {
-    type = "Script"
-  }
+step "Function App VNET Integration" {
+  type = "Script"
+}
 
-  step "Function App VNET Integration" {
-    type = "Script"
-  }
+step "Grant VNET ServiceTag Access to Function app" {
+  type = "Script"
+}
 
-  step "Grant VNET ServiceTag Access to Function app" {
-    type = "Script"
-  }
+step "Create Function app slot" {
+  type = "Script"
+}
 
-  step "Create Function app slot" {
-    type = "Script"
-  }
+step "Get Slot Principal Id" {
+  type = "Script"
+}
 
-  step "Get Slot Principal Id" {
-    type = "Script"
-  }
+step "Slot - Grant KeyVault access to function app" {
+  type = "Script"
+}
 
-  step "Slot - Grant KeyVault access to function app" {
-    type = "Script"
-  }
+step "Slot - Grant Shared KeyVault access to function app" {
+  type = "Script"
+}
 
-  step "Slot - Grant Shared KeyVault access to function app" {
-    type = "Script"
-  }
+step "Add Environment Variables from App Config" {
+  type = "Script"
+}
 
-  step "Add Environment Variables from App Config" {
-    type = "Script"
-  }
+step "Publish Package to Function app" {
+  type = "DeployAzureAppService"
+}
 
-  step "Publish Package to Function app" {
-    type = "DeployAzureAppService"
-  }
+step "Slot Warmup" {
+  type = "Script"
+}
 
-  step "Slot Warmup" {
-    type = "Script"
-  }
+step "Swap Function Slot" {
+  type = "Script"
+}
 
-  step "Swap Function Slot" {
-    type = "Script"
-  }
+step "Grant APIM Access to Function App" {
+  type = "Script"
+}
 
-  step "Grant APIM Access to Function App" {
-    type = "Script"
-  }
+step "Deploy APIM templates" {
+  type = "Script"
+}
 
-  step "Deploy APIM templates" {
-    type = "Script"
-  }
+step "Add Healthchecks" {
+  type = "Script"
+}
 
-  step "Add Healthchecks" {
-    type = "Script"
-  }
-
-  step "Set Tags" {
-    type = "Script"
-  }
+step "Set Tags" {
+  type = "Script"
 }
