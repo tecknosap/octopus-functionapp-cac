@@ -12,7 +12,7 @@ step "add-subscriptions-to-service-bus-topics" {
       "Octopus.Action.Script.ScriptBody" = <<-EOT
 Write-Host "Adding subscriptions to Service Bus topics"
 # Your logic here
-EOT
+    EOT
     }
   }
 }
