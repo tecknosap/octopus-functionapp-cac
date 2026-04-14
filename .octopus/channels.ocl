@@ -1,6 +1,6 @@
 channel "Default" {
-  name = "Review,Release"
-  is_default = true
+  name        = "Review,Release"
+  is_default  = true
 }
 
 channel "Hotfix" {
