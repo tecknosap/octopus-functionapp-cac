@@ -1,5 +1,5 @@
 project {
-  name = "octopus-project"
+  name = " functionapp-cac"
   description = "Azure Function App deployment template"
 
   project_group = "Infrastructure"
