@@ -1,0 +1,5 @@
+channels:
+  - name: Default
+    isDefault: true
+
+  - name: Hotfix
