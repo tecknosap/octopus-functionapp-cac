@@ -1,8 +1,12 @@
 channel "Default" {
-  name        = "Review,Release"
-  is_default  = true
+  name = "Review,Release"
+  is_default = true
+
+  lifecycle_id = "Standard Promotion"
 }
 
 channel "Hotfix" {
   name = "Hotfix"
+
+  lifecycle_id = "Standard Promotion"
 }
