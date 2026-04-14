@@ -1,18 +1,65 @@
-step "add-subscriptions-to-service-bus-topics" {
-  name = "Add subscriptions to service bus topics"
+step "deploy" {
+  name = "Deploy"
 
-  action "run-script" {
-    action_type = "Octopus.Script"
-    is_required = true
+  action {
+    action_type = "Octopus.AzurePowerShell"
+    worker_pool = "azure-worker-pool"
 
     properties = {
-      "Octopus.Action.RunOnServer" = "true"
-      "Octopus.Action.Script.ScriptSource" = "Inline"
-      "Octopus.Action.Script.Syntax" = "PowerShell"
-      "Octopus.Action.Script.ScriptBody" = <<-EOT
-Write-Host "Adding subscriptions to Service Bus topics"
-# Your logic here
-    EOT
+      Octopus.Action.Azure.AccountId              = "#{NewAzureAccount}"
+      Octopus.Action.EnabledFeatures              = "Octopus.Features.SubstituteInFiles,Octopus.Features.SelectPowerShellEditionForWindows"
+      Octopus.Action.Package.DownloadOnTentacle   = "False"
+      Octopus.Action.Package.FeedId               = "azure-devops-artifacts"
+      Octopus.Action.Package.PackageId            = "Interxion.ArmSharedInfrastructure.Resource"
+      Octopus.Action.PowerShell.Edition           = "Desktop"
+      Octopus.Action.Script.ScriptFileName        = "deploy.ps1"
+      Octopus.Action.Script.ScriptSource          = "Package"
+      Octopus.Action.SubstituteInFiles.TargetFiles = "**\\*.json"
+      OctopusUseBundledTooling                    = "False"
+    }
+
+    packages {
+      acquisition_location = "Server"
+      feed                 = "azure-devops-artifacts"
+      package_id           = "Interxion.ArmSharedInfrastructure.Resource"
+      properties = {
+        SelectionMode = "immediate"
+      }
+    }
+  }
+}
+
+step "post-deploy" {
+  name      = "Post Deploy"
+  condition = "Variable"
+
+  properties = {
+    Octopus.Action.TargetRoles                     = "micro-services"
+    Octopus.Step.ConditionVariableExpression       = "#{if IsDevEnvironment}True#{/if}"
+  }
+
+  action {
+    action_type = "Octopus.Script"
+
+    properties = {
+      Octopus.Action.EnabledFeatures              = "Octopus.Features.SelectPowerShellEditionForWindows"
+      Octopus.Action.Package.DownloadOnTentacle   = "False"
+      Octopus.Action.Package.FeedId               = "azure-devops-artifacts"
+      Octopus.Action.Package.PackageId            = "Interxion.ArmSharedInfrastructure.Resource"
+      Octopus.Action.PowerShell.Edition           = "Desktop"
+      Octopus.Action.RunOnServer                  = "false"
+      Octopus.Action.Script.ScriptFileName        = "PostDeploy.ps1"
+      Octopus.Action.Script.ScriptParameters      = "-AzureEnvironmentName \"#{AzureEnvironmentName}\""
+      Octopus.Action.Script.ScriptSource          = "Package"
+    }
+
+    packages {
+      acquisition_location = "Server"
+      feed                 = "azure-devops-artifacts"
+      package_id           = "Interxion.ArmSharedInfrastructure.Resource"
+      properties = {
+        SelectionMode = "immediate"
+      }
     }
   }
 }
