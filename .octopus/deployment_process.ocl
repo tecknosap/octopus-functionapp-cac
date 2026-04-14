@@ -1,62 +1,82 @@
-deploymentProcess:
-  steps:
+deploymentProcess {
 
-    - name: Add subscriptions to service bus topics
-      type: Script
+  step "Add subscriptions to service bus topics" {
+    type = "Script"
+  }
 
-    - name: Create function app
-      type: Script
+  step "Create function app" {
+    type = "Script"
+  }
 
-    - name: Get Principal Id
-      type: Script
+  step "Get Principal Id" {
+    type = "Script"
+  }
 
-    - name: Grant KeyVault access to function app
-      type: Script
+  step "Grant KeyVault access to function app" {
+    type = "Script"
+  }
 
-    - name: Grant Shared KeyVault access to function app
-      type: Script
+  step "Grant Shared KeyVault access to function app" {
+    type = "Script"
+  }
 
-    - name: Restrict App Insights Access to Function App
-      type: Script
+  step "Restrict App Insights Access to Function App" {
+    type = "Script"
+  }
 
-    - name: Function App VNET Integration
-      type: Script
+  step "Function App VNET Integration" {
+    type = "Script"
+  }
 
-    - name: Grant VNET ServiceTag Access to Function app
-      type: Script
+  step "Grant VNET ServiceTag Access to Function app" {
+    type = "Script"
+  }
 
-    - name: Create Function app slot
-      type: Script
+  step "Create Function app slot" {
+    type = "Script"
+  }
 
-    - name: Get Slot Principal Id
-      type: Script
+  step "Get Slot Principal Id" {
+    type = "Script"
+  }
 
-    - name: Slot - Grant KeyVault access to function app
-      type: Script
+  step "Slot - Grant KeyVault access to function app" {
+    type = "Script"
+  }
 
-    - name: Slot - Grant Shared KeyVault access to function app
-      type: Script
+  step "Slot - Grant Shared KeyVault access to function app" {
+    type = "Script"
+  }
 
-    - name: Add Environment Variables from App Config
-      type: Script
+  step "Add Environment Variables from App Config" {
+    type = "Script"
+  }
 
-    - name: Publish Package to Function app
-      type: DeployAzureAppService
+  step "Publish Package to Function app" {
+    type = "DeployAzureAppService"
+  }
 
-    - name: Slot Warmup
-      type: Script
+  step "Slot Warmup" {
+    type = "Script"
+  }
 
-    - name: Swap Function Slot
-      type: Script
+  step "Swap Function Slot" {
+    type = "Script"
+  }
 
-    - name: Grant APIM Access to Function App
-      type: Script
+  step "Grant APIM Access to Function App" {
+    type = "Script"
+  }
 
-    - name: Deploy APIM templates
-      type: Script
+  step "Deploy APIM templates" {
+    type = "Script"
+  }
 
-    - name: Add Healthchecks
-      type: Script
+  step "Add Healthchecks" {
+    type = "Script"
+  }
 
-    - name: Set Tags
-      type: Script
+  step "Set Tags" {
+    type = "Script"
+  }
+}
