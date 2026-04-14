@@ -1,18 +1,20 @@
-channel "release" {
-  name = "Release"
-  is_default = true
-  lifecycle_id = "Standard Promotion"
+channel "Release" {
+    Name = "Release"
+    Description = "Production release channel"
+    IsDefault = true
+    LifecycleId = "Standard Promotion"
 }
 
-channel "review" {
-  name = "Review"
-  lifecycle_id = "Standard Promotion"
+channel "Review" {
+    Name = "Review"
+    Description = "Review environment channel"
+    IsDefault = false
+    LifecycleId = "Standard Promotion"
 }
 
-channel "hotfix" {
-  name = "Hotfix"
-  lifecycle_id = "Standard Promotion"
+channel "Hotfix" {
+    Name = "Hotfix"
+    Description = "Emergency hotfix channel"
+    IsDefault = false
+    LifecycleId = "Standard Promotion"
 }
-
-
-
