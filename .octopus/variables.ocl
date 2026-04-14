@@ -1,0 +1,19 @@
+variables:
+
+  # Azure Function
+  FunctionAppName: "REPLACE_ME"
+  Region: "REPLACE_ME"
+
+  # Key Vault
+  KeyVaultName: "REPLACE_ME"
+  SharedKeyVaultName: "REPLACE_ME"
+
+  # Service Bus
+  ServiceBusNamespace: "REPLACE_ME"
+
+  # App Insights
+  AppInsightsName: "REPLACE_ME"
+
+  # Deployment
+  PackageName: "#{Octopus.Project.Name}"
+  EnvironmentName: "#{Octopus.Environment.Name}"

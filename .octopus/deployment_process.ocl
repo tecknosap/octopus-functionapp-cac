@@ -1,0 +1,62 @@
+deploymentProcess:
+  steps:
+
+    - name: Add subscriptions to service bus topics
+      type: Script
+
+    - name: Create function app
+      type: Script
+
+    - name: Get Principal Id
+      type: Script
+
+    - name: Grant KeyVault access to function app
+      type: Script
+
+    - name: Grant Shared KeyVault access to function app
+      type: Script
+
+    - name: Restrict App Insights Access to Function App
+      type: Script
+
+    - name: Function App VNET Integration
+      type: Script
+
+    - name: Grant VNET ServiceTag Access to Function app
+      type: Script
+
+    - name: Create Function app slot
+      type: Script
+
+    - name: Get Slot Principal Id
+      type: Script
+
+    - name: Slot - Grant KeyVault access to function app
+      type: Script
+
+    - name: Slot - Grant Shared KeyVault access to function app
+      type: Script
+
+    - name: Add Environment Variables from App Config
+      type: Script
+
+    - name: Publish Package to Function app
+      type: DeployAzureAppService
+
+    - name: Slot Warmup
+      type: Script
+
+    - name: Swap Function Slot
+      type: Script
+
+    - name: Grant APIM Access to Function App
+      type: Script
+
+    - name: Deploy APIM templates
+      type: Script
+
+    - name: Add Healthchecks
+      type: Script
+
+    - name: Set Tags
+      type: Script

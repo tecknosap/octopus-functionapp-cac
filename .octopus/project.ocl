@@ -1,5 +1,14 @@
-project:
-  name: FunctionApp.Template
-  description: "Octopus CaC template for Azure Function App deployments"
-  projectGroup: Function Apps
-  lifecycle: Default Lifecycle
+project {
+  name        = "FunctionApp.Template"
+  description = "Octopus CaC template for Azure Function App deployments"
+
+  project_group = "Function Apps"
+  lifecycle     = "Default Lifecycle"
+
+  included_variable_sets = [
+    "Azure Resources",
+    "Azure SQL Server Resources",
+    "Certificates",
+    "Database Server"
+  ]
+}
