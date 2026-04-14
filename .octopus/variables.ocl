@@ -1,9 +1,12 @@
-FunctionAppName      = "REPLACE_ME"
-StorageAccountName   = "REPLACE_ME"
-KeyVaultName         = "REPLACE_ME"
-SharedKeyVaultName   = "REPLACE_ME"
-ServiceBusNamespace  = "REPLACE_ME"
-AppInsightsName      = "REPLACE_ME"
-
-PackageName          = "#{Octopus.Project.Name}"
-EnvironmentName      = "#{Octopus.Environment.Name}"
+project {
+  variables {
+    FunctionAppName     = "REPLACE_ME"
+    StorageAccountName  = "REPLACE_ME"
+    KeyVaultName        = "REPLACE_ME"
+    SharedKeyVaultName  = "REPLACE_ME"
+    ServiceBusNamespace = "REPLACE_ME"
+    AppInsightsName     = "REPLACE_ME"
+    PackageName         = "#{Octopus.Project.Name}"
+    EnvironmentName     = "#{Octopus.Environment.Name}"
+  }
+}

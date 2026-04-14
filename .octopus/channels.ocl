@@ -1,5 +1,8 @@
 channel "Default" {
+  name = "Default"
   is_default = true
 }
 
-channel "Hotfix" {}
+channel "Hotfix" {
+  name = "Hotfix"
+}
