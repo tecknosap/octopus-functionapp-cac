@@ -1,5 +1,5 @@
 channel "Default" {
-  name = "Default"
+  name = "Review,Release"
   is_default = true
 }
 

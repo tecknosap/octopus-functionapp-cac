@@ -1,0 +1,115 @@
+variable_set {
+
+  variable {
+    name  = "ApimTemplatesPackageId"
+    value = "#{ProductName}-apim-templates"
+  }
+
+  variable {
+    name  = "AppConfigName"
+    value = "inxn-shared-app-config"
+  }
+
+  variable {
+    name  = "ComponentDependencies"
+    value = "['ArmSharedInfrastructure','Service - CustomerAuthorisation','Service - Login']"
+  }
+
+  variable {
+    name  = "CosmosResourceGroupName"
+    value = "#{InxnPrefix}-#{AzureEnvironmentName}-#{CosmosName}"
+  }
+
+  variable {
+    name  = "DotNetRuntimeVersion"
+    value = "8"
+  }
+
+  variable {
+    name  = "FunctionAppName"
+    value = "#{InxnPrefix}-#{AzureEnvironmentName}-#{ProductName}-func"
+    scope {
+      environments = ["Environments-1"]
+    }
+  }
+
+  variable {
+    name  = "FunctionAppName"
+    value = "#{dlrPrefix}-#{AzureEnvironmentName}-#{ProductName}-func"
+    scope {
+      environments = ["Environments-2"]
+    }
+  }
+
+  variable {
+    name  = "FunctionAppResourceGroup"
+    value = "#{InxnPrefix}-#{AzureEnvironmentName}-#{ProductName}"
+    scope {
+      environments = ["Environments-1"]
+    }
+  }
+
+  variable {
+    name  = "FunctionAppResourceGroup"
+    value = "#{dlrPrefix}-#{AzureEnvironmentName}-#{ProductName}"
+    scope {
+      environments = ["Environments-2"]
+    }
+  }
+
+  variable {
+    name  = "FunctionRuntime"
+    value = "dotnet-isolated"
+  }
+
+  variable {
+    name  = "FunctionsRuntimeVersion"
+    value = "4"
+  }
+
+  variable {
+    name  = "NetFrameworkVersion"
+    value = "v8.0"
+  }
+
+  variable {
+    name  = "PackageId"
+    value = "SeedFunction"
+  }
+
+  variable {
+    name  = "ProductName"
+    value = "seed"
+  }
+
+  variable {
+    name  = "StorageAccountName"
+    value = "seedfunc"
+  }
+
+  variable {
+    name  = "StorageAccountName"
+    value = "seedfunc#{AzureEnvironmentName}"
+  }
+
+  variable {
+    name  = "StorageAccountName"
+    value = "inxn#{AzureEnvironmentName}seedfuncsa"
+    scope {
+      environments = ["Environments-1"]
+    }
+  }
+
+  variable {
+    name  = "StorageAccountName"
+    value = "#{dlrPrefix}#{AzureEnvironmentName}seedfuncsa"
+    scope {
+      environments = ["Environments-2"]
+    }
+  }
+
+  variable {
+    name  = "StorageDnsEndpointType"
+    value = "standard"
+  }
+}
