@@ -1,10 +1,9 @@
-project "octopus-project" {
-  channel "Default" {
-    name = "Default"
-    is_default = true
-  }
+channel "Review" {
+  is_default = true
+}
 
-  channel "Hotfix" {
-    name = "Hotfix"
-  }
+channel "Hotfix" {
+}
+
+channel "Release" {
 }
