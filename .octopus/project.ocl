@@ -1,8 +1,8 @@
 project {
-  name        = "FunctionApp.Template"
+    name = "octopus-project"
   description = "Azure Function App deployment template"
 
-  project_group = "Function Apps"
+  project_group = "Infrastructure"
   lifecycle     = "Default Lifecycle"
 
   included_variable_sets = [
