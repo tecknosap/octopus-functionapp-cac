@@ -1,20 +1,15 @@
-
-channel "Release" {
+channel "release" {
   name = "Release"
   is_default = true
-
   lifecycle_id = "Standard Promotion"
 }
 
-channel "Review" {
+channel "review" {
   name = "Review"
-  is_default = true
-
   lifecycle_id = "Standard Promotion"
 }
 
-#channel "Hotfix" {
-  #name = "Hotfix"
-
-  #lifecycle_id = "Standard Promotion"
-#}
+channel "hotfix" {
+  name = "Hotfix"
+  lifecycle_id = "Standard Promotion"
+}
