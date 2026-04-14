@@ -1,70 +1,5 @@
-step "deploy" {
-  name = "Deploy"
 
-  action "run-azure-powershell" {
-    action_type = "Octopus.AzurePowerShell"
-    is_required = true
 
-    properties = {
-      "Octopus.Action.Azure.AccountId"               = "#{NewAzureAccount}"
-      "Octopus.Action.EnabledFeatures"               = "Octopus.Features.SubstituteInFiles,Octopus.Features.SelectPowerShellEditionForWindows"
-      "Octopus.Action.Package.DownloadOnTentacle"    = "False"
-      "Octopus.Action.Package.FeedId"                = "azure-devops-artifacts"
-      "Octopus.Action.Package.PackageId"             = "Interxion.ArmSharedInfrastructure.Resource"
-      "Octopus.Action.PowerShell.Edition"            = "Desktop"
-      "Octopus.Action.Script.ScriptFileName"         = "deploy.ps1"
-      "Octopus.Action.Script.ScriptSource"           = "Package"
-      "Octopus.Action.SubstituteInFiles.TargetFiles" = "**\\*.json"
-      "OctopusUseBundledTooling"                     = "False"
-    }
-
-    worker_pool = "azure-worker-pool"
-
-    packages {
-      acquisition_location = "Server"
-      feed                 = "azure-devops-artifacts"
-      package_id           = "Interxion.ArmSharedInfrastructure.Resource"
-      properties = {
-        SelectionMode = "immediate"
-      }
-    }
-  }
-}
-
-step "post-deploy" {
-  name      = "Post Deploy"
-  condition = "Variable"
-
-  properties = {
-    "Octopus.Action.TargetRoles"               = "micro-services"
-    "Octopus.Step.ConditionVariableExpression" = "#{if IsDevEnvironment}True#{/if}"
-  }
-
-  action "run-postdeploy-script" {
-    action_type = "Octopus.Script"
-
-    properties = {
-      "Octopus.Action.EnabledFeatures"            = "Octopus.Features.SelectPowerShellEditionForWindows"
-      "Octopus.Action.Package.DownloadOnTentacle" = "False"
-      "Octopus.Action.Package.FeedId"             = "azure-devops-artifacts"
-      "Octopus.Action.Package.PackageId"          = "Interxion.ArmSharedInfrastructure.Resource"
-      "Octopus.Action.PowerShell.Edition"         = "Desktop"
-      "Octopus.Action.RunOnServer"                = "false"
-      "Octopus.Action.Script.ScriptFileName"      = "PostDeploy.ps1"
-      "Octopus.Action.Script.ScriptParameters"    = "-AzureEnvironmentName \"#{AzureEnvironmentName}\""
-      "Octopus.Action.Script.ScriptSource"        = "Package"
-    }
-
-    packages {
-      acquisition_location = "Server"
-      feed                 = "azure-devops-artifacts"
-      package_id           = "Interxion.ArmSharedInfrastructure.Resource"
-      properties = {
-        SelectionMode = "immediate"
-      }
-    }
-  }
-}
 
 step "add-subscriptions-to-service-bus-topics" {
   name = "Add subscriptions to service bus topics"
@@ -74,70 +9,13 @@ step "add-subscriptions-to-service-bus-topics" {
     is_required = true
 
     properties = {
-      "Octopus.Action.RunOnServer"         = "true"
+      "Octopus.Action.RunOnServer" = "true"
       "Octopus.Action.Script.ScriptSource" = "Inline"
-      "Octopus.Action.Script.Syntax"       = "PowerShell"
-      "Octopus.Action.Script.ScriptBody"   = <<-EOT
-        Write-Host "Adding subscriptions to Service Bus topics"
-        # Your logic here
-      EOT
+      "Octopus.Action.Script.Syntax" = "PowerShell"
+      "Octopus.Action.Script.ScriptBody" = <<-EOT
+Write-Host "Adding subscriptions to Service Bus topics"
+# Your logic here
+    EOT
     }
   }
-}
-
-step "configure-app-settings" {
-  name = "Configure app settings"
-
-  action "run-script" {
-    action_type = "Octopus.Script"
-    is_required = true
-
-    properties = {
-      "Octopus.Action.RunOnServer"         = "true"
-      "Octopus.Action.Script.ScriptSource" = "Inline"
-      "Octopus.Action.Script.Syntax"       = "PowerShell"
-      "Octopus.Action.Script.ScriptBody"   = <<-EOT
-        Write-Host "Configuring application settings"
-        # Your logic here
-      EOT
-    }
-  }
-}
-
-step "run-database-migrations" {
-  name = "Run database migrations"
-
-  action "run-script" {
-    action_type = "Octopus.Script"
-    is_required = true
-
-    properties = {
-      "Octopus.Action.RunOnServer"         = "true"
-      "Octopus.Action.Script.ScriptSource" = "Inline"
-      "Octopus.Action.Script.Syntax"       = "PowerShell"
-      "Octopus.Action.Script.ScriptBody"   = <<-EOT
-        Write-Host "Running database migrations"
-        # Your logic here
-      EOT
-    }
-  }
-}
-
-step "finalise-deployment" {
-  name = "Finalise deployment"
-
-  action "run-script" {
-    action_type = "Octopus.Script"
-    is_required = true
-
-    properties = {
-      "Octopus.Action.RunOnServer"         = "true"
-      "Octopus.Action.Script.ScriptSource" = "Inline"
-      "Octopus.Action.Script.Syntax"       = "PowerShell"
-      "Octopus.Action.Script.ScriptBody"   = <<-EOT
-        Write-Host "Finalising deployment"
-        # Your logic here
-      EOT
-    }
-  }
-}
+} 
