@@ -1,5 +1,5 @@
 project {
-  name = " functionapp-cac"
+  name = "functionapp-cac"
   description = "Azure Function App deployment template"
 
   project_group = "Infrastructure"
