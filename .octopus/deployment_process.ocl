@@ -1,29 +1,159 @@
+step "add-subscriptions-to-service-bus-topics" {
+  name = "Add subscriptions to service bus topics"
+
+  script {
+    source = "add-subscriptions-to-service-bus-topics.ps1"
+  }
+}
+
 step "create-function-app" {
-  name = "Create Function App"
-  type = "Script"
+  name = "Create function app"
+
+  script {
+    source = "create-function-app.ps1"
+  }
 }
 
 step "get-principal-id" {
   name = "Get Principal Id"
-  type = "Script"
+
+  script {
+    source = "get-principal-id.ps1"
+  }
 }
 
-step "grant-keyvault-access" {
-  name = "Grant KeyVault Access"
-  type = "Script"
+step "grant-keyvault-access-to-function-app" {
+  name = "Grant KeyVault access to function app"
+
+  script {
+    source = "grant-keyvault-access.ps1"
+  }
 }
 
-step "publish-package" {
-  name = "Publish Package to Function App"
-  type = "DeployAzureAppService"
+step "grant-shared-keyvault-access-to-function-app" {
+  name = "Grant Shared KeyVault access to function app"
+
+  script {
+    source = "grant-shared-keyvault-access.ps1"
+  }
 }
 
-step "swap-slot" {
+step "restrict-app-insights-access-to-function-app" {
+  name = "Restrict App Insights Access to Function App"
+
+  script {
+    source = "restrict-app-insights-access.ps1"
+  }
+}
+
+step "function-app-vnet-integration" {
+  name = "Function App VNET Integration"
+
+  script {
+    source = "function-app-vnet-integration.ps1"
+  }
+}
+
+step "grant-vnet-servicetag-access-to-function-app" {
+  name = "Grant VNET ServiceTag Access to Function app"
+
+  script {
+    source = "grant-vnet-servicetag-access.ps1"
+  }
+}
+
+step "create-function-app-slot" {
+  name = "Create Function app slot"
+
+  script {
+    source = "create-function-app-slot.ps1"
+  }
+}
+
+step "get-slot-principal-id" {
+  name = "Get Slot Principal Id"
+
+  script {
+    source = "get-slot-principal-id.ps1"
+  }
+}
+
+step "slot-grant-keyvault-access-to-function-app" {
+  name = "Slot - Grant KeyVault access to function app"
+
+  script {
+    source = "slot-grant-keyvault-access.ps1"
+  }
+}
+
+step "slot-grant-shared-keyvault-access-to-function-app" {
+  name = "Slot - Grant Shared KeyVault access to function app"
+
+  script {
+    source = "slot-grant-shared-keyvault-access.ps1"
+  }
+}
+
+step "add-environment-variables-from-app-config" {
+  name = "Add Environment Variables from App Config"
+
+  script {
+    source = "add-environment-variables-from-app-config.ps1"
+  }
+}
+
+step "publish-package-to-function-app" {
+  name = "Publish Package to Function app"
+
+  deploy_azure_app_service {
+    package = "#{PackageName}"
+  }
+}
+
+step "slot-warmup" {
+  name = "Slot Warmup"
+
+  script {
+    source = "slot-warmup.ps1"
+  }
+}
+
+step "swap-function-slot" {
   name = "Swap Function Slot"
-  type = "Script"
+
+  script {
+    source = "swap-function-slot.ps1"
+  }
 }
 
-step "health-check" {
+step "grant-apim-access-to-function-app" {
+  name = "Grant APIM Access to Function App"
+
+  script {
+    source = "grant-apim-access.ps1"
+  }
+}
+
+step "deploy-apim-templates" {
+  name = "Deploy APIM templates"
+
+  script {
+    source = "deploy-apim-templates.ps1"
+  }
+}
+
+step "add-healthchecks" {
   name = "Add Healthchecks"
-  type = "Script"
+
+  script {
+    source = "add-healthchecks.ps1"
+  }
+}
+
+step "set-tags" {
+  name = "Set Tags"
+
+  script {
+    source = "set-tags.ps1"
+  }
 }
