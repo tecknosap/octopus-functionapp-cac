@@ -1,14 +1,18 @@
 step "add-subscriptions-to-service-bus-topics" {
   name = "Add subscriptions to service bus topics"
 
-  script {
-    source = "inline"
+  action "run-script" {
+    action_type = "Octopus.Script"
+    is_required = true
 
-    body = <<-EOT
-      Write-Host "Adding subscriptions to Service Bus topics"
-      # Your script logic here
-    EOT
+    properties = {
+      "Octopus.Action.RunOnServer" = "true"
+      "Octopus.Action.Script.ScriptSource" = "Inline"
+      "Octopus.Action.Script.Syntax" = "PowerShell"
+      "Octopus.Action.Script.ScriptBody" = <<-EOT
+Write-Host "Adding subscriptions to Service Bus topics"
+# Your logic here
+EOT
+    }
   }
-
-  worker_pool = "default-worker-pool"
 }
