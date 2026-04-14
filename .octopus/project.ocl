@@ -3,7 +3,7 @@ project {
   description = "Azure Function App deployment template"
 
   project_group = "Infrastructure"
-  lifecycle     = "Default Lifecycle"
+  lifecycle     = "Standard Promotion"
 
   included_variable_sets = [
     "Azure Resources",
