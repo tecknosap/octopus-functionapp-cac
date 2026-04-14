@@ -1,7 +1,9 @@
-connectivity_policy {
-  allow_deployments_to_no_targets = true
-}
+project "octopus-project" {
+  connectivity_policy {
+    allow_deployments_to_no_targets = true
+  }
 
-versioning_strategy {
-  template = "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+  versioning_strategy {
+    template = "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+  }
 }

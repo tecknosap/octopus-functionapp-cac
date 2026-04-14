@@ -1,8 +1,10 @@
-channel "Default" {
-  name = "Default"
-  is_default = true
-}
+project "octopus-project" {
+  channel "Default" {
+    name = "Default"
+    is_default = true
+  }
 
-channel "Hotfix" {
-  name = "Hotfix"
+  channel "Hotfix" {
+    name = "Hotfix"
+  }
 }

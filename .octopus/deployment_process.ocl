@@ -1,99 +1,101 @@
-step "add-subscriptions-to-service-bus-topics" {
-  name = "Add subscriptions to service bus topics"
-  type = "Script"
-}
+project "octopus-project" {
+  step "add-subscriptions-to-service-bus-topics" {
+    name = "Add subscriptions to service bus topics"
+    type = "Script"
+  }
 
-step "create-function-app" {
-  name = "Create function app"
-  type = "Script"
-}
+  step "create-function-app" {
+    name = "Create function app"
+    type = "Script"
+  }
 
-step "get-principal-id" {
-  name = "Get Principal Id"
-  type = "Script"
-}
+  step "get-principal-id" {
+    name = "Get Principal Id"
+    type = "Script"
+  }
 
-step "grant-keyvault-access-to-function-app" {
-  name = "Grant KeyVault access to function app"
-  type = "Script"
-}
+  step "grant-keyvault-access-to-function-app" {
+    name = "Grant KeyVault access to function app"
+    type = "Script"
+  }
 
-step "grant-shared-keyvault-access-to-function-app" {
-  name = "Grant Shared KeyVault access to function app"
-  type = "Script"
-}
+  step "grant-shared-keyvault-access-to-function-app" {
+    name = "Grant Shared KeyVault access to function app"
+    type = "Script"
+  }
 
-step "restrict-app-insights-access-to-function-app" {
-  name = "Restrict App Insights Access to Function App"
-  type = "Script"
-}
+  step "restrict-app-insights-access-to-function-app" {
+    name = "Restrict App Insights Access to Function App"
+    type = "Script"
+  }
 
-step "function-app-vnet-integration" {
-  name = "Function App VNET Integration"
-  type = "Script"
-}
+  step "function-app-vnet-integration" {
+    name = "Function App VNET Integration"
+    type = "Script"
+  }
 
-step "grant-vnet-servicetag-access-to-function-app" {
-  name = "Grant VNET ServiceTag Access to Function app"
-  type = "Script"
-}
+  step "grant-vnet-servicetag-access-to-function-app" {
+    name = "Grant VNET ServiceTag Access to Function app"
+    type = "Script"
+  }
 
-step "create-function-app-slot" {
-  name = "Create Function app slot"
-  type = "Script"
-}
+  step "create-function-app-slot" {
+    name = "Create Function app slot"
+    type = "Script"
+  }
 
-step "get-slot-principal-id" {
-  name = "Get Slot Principal Id"
-  type = "Script"
-}
+  step "get-slot-principal-id" {
+    name = "Get Slot Principal Id"
+    type = "Script"
+  }
 
-step "slot-grant-keyvault-access-to-function-app" {
-  name = "Slot - Grant KeyVault access to function app"
-  type = "Script"
-}
+  step "slot-grant-keyvault-access-to-function-app" {
+    name = "Slot - Grant KeyVault access to function app"
+    type = "Script"
+  }
 
-step "slot-grant-shared-keyvault-access-to-function-app" {
-  name = "Slot - Grant Shared KeyVault access to function app"
-  type = "Script"
-}
+  step "slot-grant-shared-keyvault-access-to-function-app" {
+    name = "Slot - Grant Shared KeyVault access to function app"
+    type = "Script"
+  }
 
-step "add-environment-variables-from-app-config" {
-  name = "Add Environment Variables from App Config"
-  type = "Script"
-}
+  step "add-environment-variables-from-app-config" {
+    name = "Add Environment Variables from App Config"
+    type = "Script"
+  }
 
-step "publish-package-to-function-app" {
-  name = "Publish Package to Function app"
-  type = "DeployAzureAppService"
-}
+  step "publish-package-to-function-app" {
+    name = "Publish Package to Function app"
+    type = "DeployAzureAppService"
+  }
 
-step "slot-warmup" {
-  name = "Slot Warmup"
-  type = "Script"
-}
+  step "slot-warmup" {
+    name = "Slot Warmup"
+    type = "Script"
+  }
 
-step "swap-function-slot" {
-  name = "Swap Function Slot"
-  type = "Script"
-}
+  step "swap-function-slot" {
+    name = "Swap Function Slot"
+    type = "Script"
+  }
 
-step "grant-apim-access-to-function-app" {
-  name = "Grant APIM Access to Function App"
-  type = "Script"
-}
+  step "grant-apim-access-to-function-app" {
+    name = "Grant APIM Access to Function App"
+    type = "Script"
+  }
 
-step "deploy-apim-templates" {
-  name = "Deploy APIM templates"
-  type = "Script"
-}
+  step "deploy-apim-templates" {
+    name = "Deploy APIM templates"
+    type = "Script"
+  }
 
-step "add-healthchecks" {
-  name = "Add Healthchecks"
-  type = "Script"
-}
+  step "add-healthchecks" {
+    name = "Add Healthchecks"
+    type = "Script"
+  }
 
-step "set-tags" {
-  name = "Set Tags"
-  type = "Script"
+  step "set-tags" {
+    name = "Set Tags"
+    type = "Script"
+  }
 }
