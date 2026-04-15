@@ -1,14 +1,26 @@
-project {
-  name = "functionapp-cac"
-  description = "Azure Function App deployment template"
+Project:
+  Name: functionapp-cac
+  Description: Azure Function App deployment template
+  ProjectGroup: Infrastructure
+  Lifecycle: Standard Promotion
+  IncludedLibraryVariableSets:
+    - Azure Resources
+    - Azure SQL Server Resources
+    - Certificates
+    - Database Server
 
-  project_group = "Infrastructure"
-  lifecycle     = "Standard Promotion"
+Channels:
+  - Name: Release
+    Description: Production release channel
+    IsDefault: true
+    Lifecycle: Standard Promotion
 
-  included_variable_sets = [
-    "Azure Resources",
-    "Azure SQL Server Resources",
-    "Certificates",
-    "Database Server"
-  ]
-}
+  - Name: Review
+    Description: Review environment channel
+    IsDefault: false
+    Lifecycle: Standard Promotion
+
+  - Name: Hotfix
+    Description: Emergency hotfix channel
+    IsDefault: false
+    Lifecycle: Standard Promotion
